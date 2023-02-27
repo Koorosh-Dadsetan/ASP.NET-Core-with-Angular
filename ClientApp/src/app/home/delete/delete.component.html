@@ -1,0 +1,37 @@
+
+<h3>آیا از حذف این مورد مطمئن هستید؟</h3>
+<div>
+  <hr />
+  <dl class="row">
+    <dt class="col-sm-2">
+      نام و نام خانوادگی
+    </dt>
+    <dd class="col-sm-10">
+      {{ employee.fullName }}
+    </dd>
+    <dt class="col-sm-2">
+      موبایل
+    </dt>
+    <dd class="col-sm-10">
+      {{ employee.mobile }}
+    </dd>
+    <dt class="col-sm-2">
+      سن
+    </dt>
+    <dd class="col-sm-10">
+      {{ employee.age }}
+    </dd>
+    <dt class="col-sm-2">
+      آدرس
+    </dt>
+    <dd class="col-sm-10">
+      {{ employee.address }}
+    </dd>
+  </dl>
+
+  <form #form="ngForm" (ngSubmit)="deleteEmployeeMethod()">
+    <input type="hidden" id="id" name="id" [(ngModel)]="employee.id" />
+    <input type="submit" value="حذف" class="btn btn-danger" />
+    <a class="btn btn-secondary" [routerLink]="['/']">انصراف</a>
+  </form>
+</div>

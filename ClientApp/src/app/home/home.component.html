@@ -1,0 +1,47 @@
+
+<h1 class="text-center">به پروژه تست من خوش آمدید</h1>
+
+<a class="text-bold" routerLink="employees/create">افزودن</a>
+
+<table class="table" *ngIf="employees">
+  <thead>
+    <tr>
+      <th>
+        نام و نام خانوادگی
+      </th>
+      <th>
+        موبایل
+      </th>
+      <th>
+        سن
+      </th>
+      <th>
+        آدرس
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>
+        {{ employee.fullName }}
+      </td>
+      <td>
+        {{ employee.mobile }}
+      </td>
+      <td>
+        {{ employee.age }}
+      </td>
+      <td>
+        {{ employee.address }}
+      </td>
+      <td>
+        <a [routerLink]="['/employees/details/' + employee.id]">جزئیات</a> | 
+        <a [routerLink]="['/employees/edit/' + employee.id]">ویرایش</a> |
+        <a [routerLink]="['/employees/delete/' + employee.id]">حذف</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 *ngIf="!employees">هیچ داده ای جهت نمایش یافت نشد</h3>
